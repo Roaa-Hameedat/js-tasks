@@ -1,0 +1,1 @@
+document.getElementById("h1").setAttribute("class" ,"b1");
