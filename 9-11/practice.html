@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+</head>
+<body>
+    <p>This example demonstrates how to use the setItem() method to set the value of a specified session storage item.</p>
+
+<button onclick="createItem()">Set session storage item</button>
+
+<h2>Get the value</h2>
+
+<p>Click the button to get the item value:</p>
+
+<button onclick="readValue()">Get the item value</button>
+
+<p id="demo"></p>
+<p id="p"></p>
+
+<script>
+    function createItem() {
+  localStorage.setItem("test1", "Lorem ipsum");
+}
+
+function readValue() {
+  var x = localStorage.getItem("test1");
+  document.getElementById("demo").innerHTML = x;
+}
+
+setInterval(myTimer, 3000);
+
+function myTimer() {
+  const d = new Date();
+  document.getElementById("p").innerHTML = d.toLocaleTimeString();
+}
+
+// function createItem() {
+//   sessionStorage.setItem("test1", "Lorem ipsum");
+// }
+
+// function readValue() {
+//   var x = sessionStorage.getItem("test1");
+//   document.getElementById("demo").innerHTML = x;
+// }
+
+// setInterval(myTimer, 3000);
+
+// function myTimer() {
+//   const d = new Date();
+//   document.getElementById("p").innerHTML = d.toLocaleTimeString();
+// }
+          
+</script>
+
+</body>
+</html>
