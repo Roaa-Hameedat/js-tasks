@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task1</title>
+</head>
+<body>
+    <form action="" method="get">
+        <label for="name">Your name:</label><br>
+        <input type="text" id="name" name="name" onchange="personalinfo(this)"><br>
+        <label for="age">Your Age:</label><br>
+        <input type="text" id="age" name="age" onchange="personalinfo(this)"><br>
+        <label for="major">Your major and university </label><br>
+        <input type="text" id="major" onchange="personalinfo(this)"><br>
+        <label for="">Description :</label><br>
+        <textarea id="Description" name="Description" rows="4" cols="50"onchange="personalinfo(this)"></textarea><br>
+
+        
+
+        <input type="radio" name="female" id="female" onchange="gender(this)" >
+        <label for="female">female</label>
+        <input type="radio" name="male" onchange="gender(this)">
+        <label for="male">male</label><br>
+        
+        
+        <label>Programming Language you prefer :</label><br>
+        <label>HTML</label>
+        <input type="checkbox" id="HTML">
+        <label>CSS</label>
+        <input type="checkbox" id="CSS">
+        <label>JS</label>
+        <input type="checkbox" id="JS">
+        <br>
+        <button type="submit" id="sub">submit</button>
+        <div style="display: none;" id="divv">
+            <span>FULL NAME : </span>
+            <span id="full_name"></span> <br>
+            <span>AGE :  </span>
+            <span id="agee"></span><br>
+            <span>MAJOR  :  </span>
+            <span id="maj"></span><br>
+            <span>DESXCRIPTION : </span>
+            <span id="des"></span><br>
+            <span>GENDER : </span>
+            <span id="gen"></span><br>
+            <span>LANGUAGES : </span>
+            <span id="lan1"></span>
+            <span id="lan2"></span>
+            <span id="lan3"></span>
+        </div>
+      </form>
+
+      <script>
+        localStorage.clear();
+        sessionStorage.clear();
+        function personalinfo(x){
+        localStorage.setItem(x.id ,x.value);
+    }
+
+    function gender(y){
+    var y1=document.getElementById("female");
+    var y2=document.getElementById("male");
+
+    if(b.id == "male" && y1.checked){
+        localStorage.setItem(y.id,y.value);
+        localStorage["female"]="off";
+    }
+    else if(b.id == "female" && y2.checked){
+        localStorage.setItem(y.id,y.value);
+        localStorage["male"]="off";
+    }
+
+    function language(L){
+    var y1=document.getElementById("JS");
+    var y2=document.getElementById("CSS");
+    var y3=document.getElementById("HTML");
+
+    if(L.id == "JS" && y1.checked){
+        localStorage.setItem(L.id,"JS");
+       
+    }
+
+    if(L.id == "CSS" && y2.checked){
+        localStorage.setItem(L.id,"CSS");
+       
+    }
+
+    if(L.id =="HTML" && y3.checked){
+        localStorage.setItem(L.id,"HTML");
+       
+    }
+}
+
+function Submit(){
+    document.getElementById("divv").style.display="block";
+    document.getElementById("divv").style.backgroundColor="darkgray";
+    document.getElementById("divv").style.width="300px";
+    document.getElementById("divv").style.marginLeft="100px";
+    document.getElementById("divv").style.border="2px black solid";
+
+    var x1=localStorage.getItem("full");
+    document.getElementById("full_name").innerHTML=x1;
+
+    var x2=localStorage.getItem("age");
+    document.getElementById("agee").innerHTML=x2;
+
+    var x3=localStorage.getItem("major");
+    document.getElementById("maj").innerHTML=x3;
+
+    var x4=localStorage.getItem("desc");
+    document.getElementById("des").innerHTML=x4;
+
+    if(localStorage.getItem("female")=="on"){document.getElementById("gen").innerHTML="Female";}
+    else if(localStorage.getItem("male")=="on"){document.getElementById("gen").innerHTML="Male";}
+   
+    
+    if(document.getElementById("JS").checked){
+        var x6=localStorage.getItem("JS");
+        document.getElementById("lan1").innerHTML=x6+" , ";
+    }
+    else document.getElementById("lan1").innerHTML="";
+
+    if(document.getElementById("CSS").checked){
+        var x7=localStorage.getItem("CSS");
+        document.getElementById("lan2").innerHTML=x7+" , ";
+    }
+    else document.getElementById("lan2").innerHTML="";
+
+    if(document.getElementById("HTML").checked){
+        var x8=localStorage.getItem("HTML");
+        document.getElementById("lan3").innerHTML=x8;
+    }
+    else document.getElementById("lan3").innerHTML="";
+
+
+}
+
+}
+      </script>
+</body>
+</html>
